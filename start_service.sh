@@ -9,13 +9,35 @@
 
 set -euo pipefail
 
+# set default values
+ENV="prod"
+PORT=3000
+# get paramethers
+while getopts e:p: flag
+do
+    case "${flag}" in
+        e) ENV=${OPTARG};;
+        p) PORT=${OPTARG};;
+    esac
+done
+echo "Environment: $ENV";
+echo "Port: $PORT";
+
 # install dependencies
 npm install
 
 # set PORT environment variale
-
-export PORT=${1:-3000}
+export PORT=$PORT
 
 # start service
 # OLD value -> node Hello/index.js
-npm start
+echo "Starting: $ENV";
+if [ $ENV = "prod" ]
+then
+  npm start
+elif [ $ENV = "dev" ]
+then
+  npm run start:dev
+else
+  echo "Unknown environment! Quiting...."
+fi
