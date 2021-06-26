@@ -9,12 +9,13 @@
 
 set -euo pipefail
 
-#install dependencies
+# install dependencies
 npm install
 
-#set PORT environment variale
+# set PORT environment variale
 
 export PORT=${1:-3000}
 
-#start service
-node Hello/index.js
+# start service
+# OLD value -> node Hello/index.js
+npm start
