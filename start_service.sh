@@ -23,20 +23,20 @@ done
 echo "Environment: $ENV";
 echo "Port: $PORT";
 
-# install dependencies
-npm install
-
 # set PORT environment variale
 export PORT=$PORT
 
-# start service
+# start service and install dependencies
 # OLD value -> node Hello/index.js
-echo "Starting: $ENV";
 if [ $ENV = "prod" ]
 then
+  npm install --only=production
+  echo "Starting: $ENV";
   npm start
 elif [ $ENV = "dev" ]
 then
+  npm install
+  echo "Starting: $ENV";
   npm run start:dev
 else
   echo "Unknown environment! Quiting...."
