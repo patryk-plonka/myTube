@@ -27,7 +27,6 @@ echo "Port: $PORT";
 export PORT=$PORT
 
 # start service and install dependencies
-# OLD value -> node Hello/index.js
 if [ $ENV = "prod" ]
 then
   npm install --only=production
