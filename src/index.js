@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
     res.send('Hello World');
 });
 app.get("/video", (req, res) => {
-    const path = "../media/file_example_MP4_480_1_5MG.mp4";
+    const path = "../media/file-example-MP4-480-1-5MG.mp4"
     fs.stat(path, (err, stats) => {
         if(err) {
             console.error("An error occured - http 500");
