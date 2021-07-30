@@ -8,6 +8,7 @@
 # ./start_service.sh
 
 set -euo pipefail
+IFS=$'\n\t'
 
 # set default values
 ENV="prod"
